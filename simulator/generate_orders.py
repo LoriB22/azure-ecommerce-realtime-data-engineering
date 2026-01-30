@@ -11,9 +11,9 @@ load_dotenv()
 fake = Faker()
 
 # Azure Event Hub credentials  
-BOOTSTRAP_SERVERS = 'ecommerce-namespace.servicebus.windows.net:9093'
+BOOTSTRAP_SERVERS = os.getenv("AZURE_BOOTSTRAP_SERVERS")
 EVENT_HUB_CONNECTION_STRING = os.getenv("AZURE_EVENT_HUB_CONNECTION_STRING")
-EVENT_HUB_NAME = 'ecommerce-orders'
+EVENT_HUB_NAME = os.getenv("AZURE_EVENT_HUB_NAME")
 
 producer = KafkaProducer(
     bootstrap_servers=BOOTSTRAP_SERVERS,
